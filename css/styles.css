@@ -190,16 +190,14 @@ img {
     box-shadow var(--hover-transition);
 }
 
-.button.primary:hover,
-.button.primary:focus {
+.button.primary:is(:hover, :focus) {
   cursor: pointer;
 
   background-color: var(--button-hover-color);
   animation-play-state: running;
 }
 
-.button.secondary:hover,
-.button.secondary:focus {
+.button.secondary:is(:hover, :focus) {
   color: var(--button-color);
   cursor: pointer;
 
@@ -276,6 +274,7 @@ header {
   font-weight: 500;
   line-height: 1.5;
   color: var(--text-title-color);
+  transition: color var(--hover-transition);
 }
 
 .nav-link::after {
@@ -309,16 +308,9 @@ header {
   flex-wrap: wrap;
 }
 
-.address-list a {
-  font-style: normal;
-  color: var(--text-main-color);
-}
-
-.nav-link:hover,
-.nav-link:focus,
-.current,
-.address-link:hover,
-.address-link:focus {
+.nav-link:is(:hover, :focus),
+.address-link:is(:hover, :focus),
+.current {
   color: var(--button-hover-color);
 }
 
@@ -327,9 +319,10 @@ header {
 }
 
 .address-link {
-  display: block;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  font-style: normal;
+  color: var(--text-main-color);
+
+  transition: color var(--hover-transition);
 }
 
 /* Hero section */
@@ -469,8 +462,7 @@ header {
   transition: background-color var(--hover-transition);
 }
 
-.team-link-social:hover,
-.team-link-social:focus {
+.team-link-social:is(:hover, :focus) {
   background-color: var(--button-hover-color);
 }
 
@@ -583,7 +575,7 @@ header {
   border-left: 1px solid var(--button-border-color);
 }
 
-/* Footer */
+/* FOOTER */
 
 footer {
   padding-top: 100px;
@@ -639,6 +631,8 @@ footer {
 .footer-link-social:is(:hover, :focus) {
   background-color: var(--icon-social-hover);
 }
+
+/* MODAL */
 
 .backdrop {
   position: fixed;
